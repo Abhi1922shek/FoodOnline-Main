@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
+
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -75,6 +74,13 @@ class User(AbstractBaseUser):
     
     def has_module_perms(self, app_label):
         return True
+    
+    def get_role(self):
+        if self.role == 1:
+            user_role = 'Vendor'
+        elif self.role == 2:
+            user_role = 'Customer'
+        return user_role
 
 # For User Profile 
 class UserProfile(models.Model):
@@ -94,3 +100,4 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.email
+    
