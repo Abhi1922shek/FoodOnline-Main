@@ -187,7 +187,7 @@ def login(request):
     elif request.method == 'POST':
         email = request.POST['email'] # here email is the name value (name = "email") of the input field
         password = request.POST['password']
-        print(password)  # here password is the name value (name = "password") of the input field
+        # print(password)  # here password is the name value (name = "password") of the input field
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)

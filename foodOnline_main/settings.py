@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'accounts.context_processors.get_vendor',
+                'accounts.context_processors.get_google_api',
             ],
         },
     },
@@ -149,5 +150,7 @@ EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER='abhiduggodi@gmail.com'
-EMAIL_HOST_PASSWORD=''
-DEFAULT_FROM_EMAIL=''
+EMAIL_HOST_PASSWORD='ucdw hcds bcld twto'
+DEFAULT_FROM_EMAIL='foodOnline Marketplace <abhiduggodi@gmail.com>'
+
+GOOGLE_API_KEY = config('GOOGLE_API_KEY')
