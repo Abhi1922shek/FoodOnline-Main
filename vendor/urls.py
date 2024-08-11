@@ -15,8 +15,8 @@ urlpatterns = [
     path('category/category/delete/<int:pk>/', views.delete_category, name='delete_category'),
 
     # FoodItems CRUD
-    # path('category/food/add', views.add_food, name='add_food'),
-    # path('category/food/edit/<int:pk>/', views.edit_food, name='edit_food'),
-    # path('category/food/delete/<int:pk>/', views.delete_food, name='delete_food'),
+    path('category/food/add', views.add_food, name='add_food'),
+    path('category/food/edit/<int:pk>/', views.edit_food, name='edit_food'),
+    path('category/food/delete/<int:pk>/', views.delete_food, name='delete_food'),
     
 ]

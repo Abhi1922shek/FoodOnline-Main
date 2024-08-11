@@ -48,6 +48,7 @@
                                     {% endif %}
                                 {% endfor %}
                                 <button type="submit" class="btn btn-info"><i class="fa fa-check" aria-hidden="True"></i> Update</button>
+                                <a href="{% url 'delete_category' category.id %}" onclick="return confirm('You are about to delete {{ category }}')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="True"></i> Delete</a>
                             </form>
                         <!-- render form -->
                         </div>
