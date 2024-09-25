@@ -94,33 +94,38 @@
                                 <div class="menu-itam-holder">
                                     
                                     <div id="menu-item-list-6272" class="menu-itam-list">
-                                        
-                                        {% for category in categories %}
-                                        <div class="element-title" id="menu-category-2">
-                                            <h5 class="text-color">{{ category }}</h5>
-                                            <span>{{ category.description }}</span>
-                                        </div>
-                                        <ul>
-                                            {% for food in category.fooditems.all %}
-                                            <li>
-                                                <div class="image-holder">
-                                                    <img src="{{ food.image.url }}" alt="food item">
-                                                </div>
-                                                <div class="text-holder">
-                                                    <h6>{{ food }}</h6>
-                                                    <span>{{ food.description }}</span>
-                                                </div>
-                                                <div class="price-holder">
-                                                    <span class="price">&#8377; {{ food.price }}</span>
-                                                    <a href="#" class="decrease_cart" data-id="{{ food.id }}" data-url="{% url 'decrease_cart' food.id %}" style="margin-right:28px;"><i class="icon-minus text-color"></i></a>
-                                                    <label id="qty-{{food.id}}">0</label>
-                                                    <a href="#" class="add_to_cart" data-id="{{ food.id }}" data-url="{% url 'add_to_cart' food.id %}"><i class="icon-plus4 text-color"></i></a>
+                                        {% if categories %}
+                                            {% for category in categories %}
+                                            <div class="element-title" id="menu-category-2">
+                                                <h5 class="text-color">{{ category }}</h5>
+                                                <span>{{ category.description }}</span>
+                                            </div>
+                                            <ul>
+                                                {% for food in category.fooditems.all %}
+                                                <li>
+                                                    <div class="image-holder">
+                                                        <img src="{{ food.image.url }}" alt="food item">
+                                                    </div>
+                                                    <div class="text-holder">
+                                                        <h6>{{ food }}</h6>
+                                                        <span>{{ food.description }}</span>
+                                                    </div>
+                                                    <div class="price-holder">
+                                                        <span class="price">&#8377; {{ food.price }}</span>
+                                                        <a href="#" class="decrease_cart" data-id="{{ food.id }}" data-url="{% url 'decrease_cart' food.id %}" style="margin-right:28px;"><i class="icon-minus text-color"></i></a>
+                                                        <label id="qty-{{food.id}}">0</label>
+                                                        <a href="#" class="add_to_cart" data-id="{{ food.id }}" data-url="{% url 'add_to_cart' food.id %}"><i class="icon-plus4 text-color"></i></a>
 
-                                                </div>
-                                            </li>
+                                                    </div>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
                                             {% endfor %}
-                                        </ul>
-                                        {% endfor %}
+                                        {% else %}
+                                            <div class="text-center p-5">
+                                                <h3>No categories found</h3>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 {% for item in cart_items %}
